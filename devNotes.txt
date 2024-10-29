@@ -1,0 +1,18 @@
+##Developer Notes##
+-------------------
+
+Task Parameters
+---------------
+
+    |   Name               |    Data Type
+----#----------------------|------------------------------------------------------------------
+    |   Title              |    Text
+    |   RMA Number         |    Text (Not Number in case of RMA being booked in under ticket ID)
+    |   Received Date      |    Date (Not sure if this is a valid datatype)
+    |   Description        |    Textfield
+    
+
+Note from Last time: Added extra inputs to Modal in HTML. Modal no longer works. Check html and JS for errors
+
+- 24/10
+    - Above issue fixed. Now column titles don't display

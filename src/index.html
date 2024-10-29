@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Edit Task Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Edit Task</h2>
+            <label>Title</label>
+            <input type="text" id="editInputTitle" placeholder="Edit your task here...">
+            <br>
+            <label>RMA</label>
+            <input type="text" id="editInputRmaNumber">
+            <br>
+            <label>Received Date</label>
+            <input type="date" id="editInputReceivedDate">
+            <br>
+            <label >Notes</label>
+            <input type="text" id="editInputDescription">
+            <br>
+            <button id="saveEditButton">Save</button>
+        </div>
+    </div>
+    <div class="board">
+        <form id="todo-form">
+            <input type="text" placeholder="New Todo..." id="todo-input"/>
+            <button type="submit">Add +</button>
+        </form>
+        <div class="column-container">
+            <div>   <h3>Product Waiting</h3>    <div class="column" id="productWaiting-column"></div>   </div>
+            <div>   <h3>In Progress</h3>        <div class="column" id="inProgress-column"></div>       </div>
+            <div>   <h3>Complete</h3>           <div class="column" id="complete-column"></div>         </div>
+            <div>   <h3>Unresponsive</h3>       <div class="column" id="unresponsive-column"></div>     </div>
+        </div>
+    </div>
+</body>
+</html>

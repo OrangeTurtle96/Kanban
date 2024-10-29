@@ -1,0 +1,36 @@
+{
+  "name": "kanbannode3",
+  "version": "1.0.0",
+  "description": "A Kanban board application using Electron and LowDB",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "Michael Rothwell",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "electron": "^25.0.0",
+    "lodash": "^4.17.21",
+    "lowdb": "^5.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.yourdomain.kanban",
+    "productName": "KanbanApp",
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/index.html",
+      "src/script.js",
+      "src/styles.css",
+      "node_modules"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
