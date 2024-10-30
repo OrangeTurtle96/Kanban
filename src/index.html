@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css"/>
+    <!-- <link rel="stylesheet" href="styles.css"/> -->
+    <link rel="stylesheet" href="main.css"/>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -25,17 +27,18 @@
             <button id="saveEditButton">Save</button>
         </div>
     </div>
-    <div class="board">
-        <form id="todo-form">
-            <input type="text" placeholder="New Todo..." id="todo-input"/>
-            <button type="submit">Add +</button>
-        </form>
-        <div class="column-container">
-            <div>   <h3>Product Waiting</h3>    <div class="column" id="productWaiting-column"></div>   </div>
-            <div>   <h3>In Progress</h3>        <div class="column" id="inProgress-column"></div>       </div>
-            <div>   <h3>Complete</h3>           <div class="column" id="complete-column"></div>         </div>
-            <div>   <h3>Unresponsive</h3>       <div class="column" id="unresponsive-column"></div>     </div>
-        </div>
+
+    <!--Main layout-->       
+    <form id="todo-form">
+        <input type="text" placeholder="New Item..." id="todo-input"/>
+        <button type="submit">Add +</button>
+    </form>
+    <div class="column-container">
+        <div>   <h3>Product Waiting</h3>    <div class="column" id="productWaiting-column"></div>   </div>
+        <div>   <h3>In Progress</h3>        <div class="column" id="inProgress-column"></div>       </div>
+        <div>   <h3>Complete</h3>           <div class="column" id="complete-column"></div>         </div>
+        <div>   <h3>Unresponsive</h3>       <div class="column" id="unresponsive-column"></div>     </div>
     </div>
+
 </body>
 </html>
