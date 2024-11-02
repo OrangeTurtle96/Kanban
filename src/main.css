@@ -11979,8 +11979,8 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #f4f4f4;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  background: #f4f4f439;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.289);
   padding: 12px;
   border-radius: 4px;
   width: 225px;
@@ -11991,7 +11991,7 @@ textarea.form-control-lg {
 .task {
   background: white;
   color: black;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.383);
   padding: 12px;
   border-radius: 4px;
   font-size: 16px;

@@ -6,29 +6,38 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js" defer></script>
 </head>
-<body class="bg-body">
+<body class="bg-body" background="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
     <!-- Edit Task Modal -->
     <div id="editModal" class="modal" tabindex="-1">
-        <div class="modal-content">
-            <div class="modal-header"> 
-                <h2 class="modal-title" id="editModalTitle">Edit Task</h2>
-                <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> 
+                    <h2 class="modal-title" id="editModalTitle">Edit Task</h2>
+                    <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editInputTitle" placeholder="Edit your task here...">
+                        <label for="editInputTitle" class="form-label">Title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control"  id="editInputRmaNumber">
+                        <label for="editInputRmaNumber" class="form-label">RMA</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="editInputReceivedDate">
+                        <label for="editInputReceivedDate" class="form-label">Received Date</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editInputDescription">
+                        <label for="editInputDescription" class="form-label">Notes</label>       
+                    </div>      
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" id="saveEditButton">Save</button>
+                </div>
             </div>
-            
-            <label>Title</label>
-            <input type="text" id="editInputTitle" placeholder="Edit your task here...">
-            <br>
-            <label>RMA</label>
-            <input type="text" id="editInputRmaNumber">
-            <br>
-            <label>Received Date</label>
-            <input type="date" id="editInputReceivedDate">
-            <br>
-            <label >Notes</label>
-            <input type="text" id="editInputDescription">
-            <br>
-            <button id="saveEditButton">Save</button>
-        </div>
+        </div>  
     </div>
 
     <!--Main layout-->  

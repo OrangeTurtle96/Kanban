@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 rmaNumber: '',
                 receivedDate: '',
                 description: '',
-                column: 'productWaiting-column'
+                column: 'inProgress-column'
             };
             tasks.push(newTask);
             renderTask(newTask);
