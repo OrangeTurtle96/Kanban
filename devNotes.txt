@@ -15,3 +15,4 @@ Task Parameters
 Note from Last time: Added extra inputs to Modal in HTML. Modal no longer works. Check html and JS for errors
 
 5/11/2024 - Next step is to add a tag for Line/Location/Product type on the tasks, and add a filter function to only show those cards.
+            MERGE BACK INTO MAIN AND CHECK OUT A NEW BRANCH BEFORE STARTING ON THE ABOVE!
