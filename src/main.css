@@ -11979,8 +11979,8 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #f4f4f439;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.289);
+  background: rgba(244, 244, 244, 0.2941176471);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   padding: 12px;
   border-radius: 4px;
   width: 225px;
@@ -11991,10 +11991,9 @@ textarea.form-control-lg {
 .task {
   background: white;
   color: black;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.383);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
   padding: 12px;
   border-radius: 4px;
-  font-size: 16px;
   cursor: move;
 }
 
@@ -12002,5 +12001,23 @@ textarea.form-control-lg {
   scale: 1.05;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   background: rgb(50, 50, 50);
+  color: white;
+}
+
+.edit-button, .delete-button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.edit-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red */
   color: white;
 }/*# sourceMappingURL=main.css.map */
