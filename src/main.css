@@ -11971,7 +11971,7 @@ textarea.form-control-lg {
   justify-content: start;
   gap: 16px;
   padding: 24px 32px;
-  overflow: scroll;
+  overflow: hidden;
   height: 100%;
 }
 
