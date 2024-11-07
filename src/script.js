@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 rmaNumber: '',
                 receivedDate: '',
                 description: '',
-                column: 'productWaiting-column'
+                column: 'inProgress-column'
             };
             tasks.push(newTask);
             renderTask(newTask);
@@ -82,6 +82,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         taskContent.classList.add('task-content');
         taskContent.textContent = task.text;
 
+        const taskRMANumber = document.createElement('div');
+        taskRMANumber.classList.add('task-content-small');
+        taskRMANumber.textContent = task.rmaNumber;
+
+        const taskReceivedDate = document.createElement('div');
+        taskReceivedDate.classList.add('task-content-small');
+        taskReceivedDate.textContent = task.receivedDate;
+        
+
         const taskButtons = document.createElement('div');
         taskButtons.classList.add('task-buttons');
 
@@ -110,6 +119,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         taskButtons.appendChild(deleteButton);
 
         taskElement.appendChild(taskContent);
+        taskElement.appendChild(taskRMANumber);
+        taskElement.appendChild(taskReceivedDate);
         taskElement.appendChild(taskButtons);
 
         return taskElement;

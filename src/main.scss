@@ -1,0 +1,101 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+
+/* width */
+::-webkit-scrollbar {
+width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #f4f4f44b;
+border-radius: 10px;
+}
+::-webkit-scrollbar-corner{
+background: rgba(0,0,0,0);
+}
+
+
+.column-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 16px;
+
+    padding: 24px 32px;
+
+    overflow: scroll;
+    height: 100%;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    background: #f4f4f44b;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    
+    padding: 12px;
+    border-radius: 4px;
+    width: 225px;
+    min-height: 120px;
+
+    flex-shrink: 0;
+}
+.task {
+    background: white;
+    color: black;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+
+    padding: 12px;
+    border-radius: 4px;
+
+    //font-size: 16px;
+    cursor: move;
+}
+
+.is-dragging {
+    scale: 1.05;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    background: rgb(50, 50, 50);
+    color: white;
+}
+
+.edit-button, .delete-button {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-left: 4px;
+}
+
+.task-content{
+    font-size: 18px;
+}
+
+.task-content-small{
+    font-size: 12px;
+    color: gray;
+}
