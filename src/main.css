@@ -11965,6 +11965,26 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 244, 244, 0.2941176471);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+
 .column-container {
   display: flex;
   align-items: flex-start;
