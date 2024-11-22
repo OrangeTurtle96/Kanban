@@ -13,21 +13,30 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-
+    
         const titleInput = document.getElementById('todo-input');
         const newTitle = titleInput.value.trim();
-
+        const newRmaNumber = newTitle; // Assuming the RMA number is the same as the task title for now, adjust as needed
+    
         if (newTitle !== "") {
+            // Check if the RMA number is unique
+            const isRmaUnique = !tasks.some(task => task.rmaNumber === newRmaNumber);
+            
+            if (!isRmaUnique) {
+                alert('This RMA number already exists! Please use a unique number.');
+                return; // Prevent the task from being added
+            }
+    
             const newTask = {
-                text: newTitle,
-                rmaNumber: '',
+                rmaNumber: newRmaNumber,
+                productName: '',
                 receivedDate: '',
                 description: '',
                 column: 'inProgress-column'
             };
+    
             tasks.push(newTask);
             renderTask(newTask);
-
             titleInput.value = "";
             window.electron.saveTasks(tasks);
         }
@@ -48,17 +57,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         const newRmaNumber = document.getElementById('editInputRmaNumber').value.trim();
         const newReceivedDate = document.getElementById('editInputReceivedDate').value.trim();
         const newDescription = document.getElementById('editInputDescription').value.trim();
-
+    
         if (newTitle !== "") {
-            currentTask.text = newTitle;
+            // Check if the RMA number is unique
+            const isRmaUnique = !tasks.some(task => task.rmaNumber === newRmaNumber || (currentTask && currentTask.rmaNumber === newRmaNumber));
+    
+            if (!isRmaUnique) {
+                alert('This RMA number already exists! Please use a unique number.');
+                return; // Prevent the task from being saved
+            }
+    
+            currentTask.productName = newTitle;
             currentTask.rmaNumber = newRmaNumber;
             currentTask.receivedDate = newReceivedDate;
             currentTask.description = newDescription;
+    
             window.electron.saveTasks(tasks);
             renderTasks(tasks);
         }
+    
         editModal.style.display = 'none';
     });
+    
 
     function renderTasks(tasks) {
         const columns = document.querySelectorAll('.column');
@@ -80,11 +100,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const taskContent = document.createElement('div');
         taskContent.classList.add('task-content');
-        taskContent.textContent = task.text;
+        taskContent.textContent = task.rmaNumber;
 
         const taskRMANumber = document.createElement('div');
         taskRMANumber.classList.add('task-content-small');
-        taskRMANumber.textContent = task.rmaNumber;
+        taskRMANumber.textContent = task.productName;
 
         const taskReceivedDate = document.createElement('div');
         taskReceivedDate.classList.add('task-content-small');
@@ -99,8 +119,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         editButton.textContent = 'Edit';
         editButton.addEventListener('click', () => {
             currentTask = task;
-            document.getElementById('editInputTitle').value = task.text;
             document.getElementById('editInputRmaNumber').value = task.rmaNumber;
+            document.getElementById('editInputTitle').value = task.productName;
             document.getElementById('editInputReceivedDate').value = task.receivedDate;
             document.getElementById('editInputDescription').value = task.description;
             editModal.style.display = 'block';
