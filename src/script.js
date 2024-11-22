@@ -60,12 +60,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     
         if (newTitle !== "") {
             // Check if the RMA number is unique
-            const isRmaUnique = !tasks.some(task => task.rmaNumber === newRmaNumber || (currentTask && currentTask.rmaNumber === newRmaNumber));
+            /*const isRmaUnique = !tasks.some(task => task.rmaNumber === newRmaNumber || (currentTask && currentTask.rmaNumber === newRmaNumber));
     
             if (!isRmaUnique) {
                 alert('This RMA number already exists! Please use a unique number.');
                 return; // Prevent the task from being saved
-            }
+            }*/
+
+            //The above breaks task editing and has been removed
     
             currentTask.productName = newTitle;
             currentTask.rmaNumber = newRmaNumber;
