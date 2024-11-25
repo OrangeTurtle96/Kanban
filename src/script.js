@@ -15,10 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         e.preventDefault();
     
         const titleInput = document.getElementById('todo-input');
-        const newTitle = titleInput.value.trim();
-        const newRmaNumber = newTitle; // Assuming the RMA number is the same as the task title for now, adjust as needed
+        const newRmaNumber = titleInput.value.trim();
     
-        if (newTitle !== "") {
+        if (newRmaNumber !== "") {
             // Check if the RMA number is unique
             const isRmaUnique = !tasks.some(task => task.rmaNumber === newRmaNumber);
             
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const newReceivedDate = document.getElementById('editInputReceivedDate').value.trim();
         const newDescription = document.getElementById('editInputDescription').value.trim();
     
-        if (newTitle !== "") {
+        if (newRmaNumber !== "") {
             // Check if the RMA number is unique
             /*const isRmaUnique = !tasks.some(task => task.rmaNumber === newRmaNumber || (currentTask && currentTask.rmaNumber === newRmaNumber));
     
