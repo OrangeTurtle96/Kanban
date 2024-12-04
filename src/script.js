@@ -5,13 +5,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     const editModal = document.getElementById('editModal');
     const closeModalButton = document.querySelector('.close-button');
     const saveEditButton = document.getElementById('saveEditButton');
+    const addTaskForm = document.getElementById('todo-form');
     let currentTask;
 
     let tasks = await window.electron.loadTasks();
     console.log('Loaded tasks:', tasks);
     renderTasks(tasks);
 
-    form.addEventListener('submit', (e) => {
+    addTaskForm.addEventListener('submit', (e) => {
         e.preventDefault();
     
         const titleInput = document.getElementById('todo-input');
@@ -58,27 +59,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         const newDescription = document.getElementById('editInputDescription').value.trim();
     
         if (newRmaNumber !== "") {
-            // Check if the RMA number is unique
-            /*const isRmaUnique = !tasks.some(task => task.rmaNumber === newRmaNumber || (currentTask && currentTask.rmaNumber === newRmaNumber));
+            // We need to preserve the current task's column while updating other fields
+            const currentColumn = currentTask.column;  // Preserve the column value before making changes
     
-            if (!isRmaUnique) {
-                alert('This RMA number already exists! Please use a unique number.');
-                return; // Prevent the task from being saved
-            }*/
-
-            //The above breaks task editing and has been removed
-    
+            // Now update the task with new data (don't touch the column)
             currentTask.productName = newTitle;
             currentTask.rmaNumber = newRmaNumber;
             currentTask.receivedDate = newReceivedDate;
             currentTask.description = newDescription;
     
+            // After updating, set the column back to what it was to preserve the task's place
+            currentTask.column = currentColumn;
+    
+            // Now save the tasks and re-render them
             window.electron.saveTasks(tasks);
             renderTasks(tasks);
         }
     
-        editModal.style.display = 'none';
+        editModal.style.display = 'none';  // Close the modal after saving
     });
+    
+    
     
 
     function renderTasks(tasks) {
@@ -138,7 +139,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         taskButtons.appendChild(editButton);
         taskButtons.appendChild(deleteButton);
-
         taskElement.appendChild(taskContent);
         taskElement.appendChild(taskRMANumber);
         taskElement.appendChild(taskReceivedDate);
