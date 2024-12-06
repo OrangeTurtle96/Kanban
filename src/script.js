@@ -155,14 +155,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         taskElement.addEventListener('dragstart', () => {
             taskElement.classList.add('is-dragging');
         });
+    
         taskElement.addEventListener('dragend', () => {
             taskElement.classList.remove('is-dragging');
             const columnId = taskElement.closest('.column').id;
-            const task = tasks.find(t => t.text === taskElement.querySelector('.task-content').textContent);
-            task.column = columnId;
-            window.electron.saveTasks(tasks);
+            
+            // Get the task object based on RMA number (unique identifier)
+            const rmaNumber = taskElement.querySelector('.task-content').textContent.trim();
+            const task = tasks.find(t => t.rmaNumber === rmaNumber);
+            
+            if (task) {
+                task.column = columnId;  // Update the task's column
+                window.electron.saveTasks(tasks);  // Save the updated tasks
+            }
         });
     }
+    
 
     const droppables = document.querySelectorAll(".column");
 
