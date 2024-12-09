@@ -105,15 +105,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const taskRMANumber = document.createElement('div');
         taskRMANumber.classList.add('task-content-small');
-        taskRMANumber.textContent = task.productName;
+        taskRMANumber.textContent = 'Product: ' + task.productName;
 
         const taskReceivedDate = document.createElement('div');
         taskReceivedDate.classList.add('task-content-small');
-        taskReceivedDate.textContent = task.receivedDate;
+        taskReceivedDate.textContent = 'Recieved: ' + task.receivedDate;
 
         const taskDateModified = document.createElement('div');
         taskDateModified.classList.add('task-content-small');
-        taskDateModified.textContent = task.dateModified;
+        taskDateModified.textContent = 'Last Modified: ' + task.dateModified;
         
 
         const taskButtons = document.createElement('div');
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const editButton = document.createElement('button');
         editButton.classList.add('edit-button');
-        editButton.textContent = 'Edit';
+        editButton.textContent = 'View / Edit';
         editButton.addEventListener('click', () => {
             currentTask = task;
             document.getElementById('editInputRmaNumber').value = task.rmaNumber;
