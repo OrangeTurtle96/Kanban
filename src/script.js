@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 productName: '',
                 receivedDate: '',
                 description: '',
-                column: 'inProgress-column'
+                column: 'inProgress-column',
+                dateModified: getTodaysDate()
             };
     
             tasks.push(newTask);
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             currentTask.rmaNumber = newRmaNumber;
             currentTask.receivedDate = newReceivedDate;
             currentTask.description = newDescription;
+            currentTask.dateModified = getTodaysDate();
     
             // After updating, set the column back to what it was to preserve the task's place
             currentTask.column = currentColumn;
@@ -79,9 +81,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         editModal.style.display = 'none';  // Close the modal after saving
     });
     
-    
-    
-
     function renderTasks(tasks) {
         const columns = document.querySelectorAll('.column');
         columns.forEach(column => column.innerHTML = ''); // Clear existing tasks
@@ -111,6 +110,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const taskReceivedDate = document.createElement('div');
         taskReceivedDate.classList.add('task-content-small');
         taskReceivedDate.textContent = task.receivedDate;
+
+        const taskDateModified = document.createElement('div');
+        taskDateModified.classList.add('task-content-small');
+        taskDateModified.textContent = task.dateModified;
         
 
         const taskButtons = document.createElement('div');
@@ -142,9 +145,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         taskElement.appendChild(taskContent);
         taskElement.appendChild(taskRMANumber);
         taskElement.appendChild(taskReceivedDate);
+        taskElement.appendChild(taskDateModified);
         taskElement.appendChild(taskButtons);
 
         return taskElement;
+    }
+
+    function getTodaysDate(){
+        const date = new Date();
+            const formattedDate = date.toLocaleString("en-GB", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+        });
+
+    console.log(formattedDate); // '18 Jan 2020, 18:20'
+    return formattedDate;
     }
 
     function deleteTask(taskElement) {
@@ -166,6 +184,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             if (task) {
                 task.column = columnId;  // Update the task's column
+                task.dateModified = getTodaysDate(); //Update the task's dateModified NOT WORKING !!!!!!!
                 window.electron.saveTasks(tasks);  // Save the updated tasks
             }
         });
