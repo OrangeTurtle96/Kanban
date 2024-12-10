@@ -9,10 +9,10 @@
 <body class="bg-body" background="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
     <!-- Edit Task Modal -->
     <div id="editModal" class="modal" tabindex="-1">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header"> 
-                    <h2 class="modal-title" id="editModalTitle">Edit Task</h2>
+                    <h4 class="modal-title" id="editModalTitle">View / Edit</h2>
                     <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -29,7 +29,7 @@
                         <label for="editInputReceivedDate" class="form-label">Received Date</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="editInputDescription">
+                        <textarea class="form-control" id="editInputDescription"></textarea>
                         <label for="editInputDescription" class="form-label">Notes</label>       
                     </div>      
                 </div>
@@ -43,22 +43,25 @@
     <!--Main layout-->  
     <div class="navbar navbar-expand-lg bs-primary bg-primary-subtle">
         <div class="container-fluid">
-            <form id="todo-form" class="d-flex">
-                <div class="nav-item">
-                    <input type="text" class="form-control" placeholder="RMA Number..." id="todo-input"/>
+            <form id="todo-form" class="d-flex justify-content-start">
+                <div class="nav-item w-100">
+                    <input type="text" class="form-control w-100" placeholder="RMA Number..." id="todo-input"/>
                 </div>
                 <div class="nav-item ms-2">
-                    <button type="submit" class="btn btn-outline-success">+</button>
+                    <button type="submit" class="btn btn-outline-success">Add</button>
                 </div>
             </form>
-            <form id="search-form" class="d-flex">
-                <div class="nav-item">
-                    <input type="text" class="form-control" placeholder="Search..." id="todo-input"/>
+            <form id="search-form" class="d-flex justify-content-center w-50">
+                <div class="nav-item ms-2 w-100">
+                    <input type="text" class="form-control w-100" placeholder="Search..." id="todo-input"/>
                 </div>
                 <div class="nav-item ms-2">
-                    <button type="submit" class="btn btn-outline-light">&#128269</button>
+                    <button type="submit" class="btn btn-outline-light">Search</button>
                 </div>
             </form>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-warning">Button</button>
+            </div>
         </div>  
     </div>     
     <div class="column-container">
